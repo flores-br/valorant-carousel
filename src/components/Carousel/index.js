@@ -3,34 +3,45 @@ import axios from 'axios';
 import './style.css';
 
 const Carousel = () => {
-  const [data, setData] = useState({});
+  const [agentData, setAgentData] = useState({
+    displayName: '',
+    description: '',
+    fullPortraitV2: '',
+    role: {},
+    abilities: [],
+  });
+  const URL =
+    'https://valorant-api.com/v1/agents/8e253930-4c05-31dd-1b6c-968525494517';
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(URL).then(res => res.data.data);
+      setAgentData(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const URL =
-        'https://valorant-api.com/v1/agents/dade69b4-4f5a-8528-247b-219e5a1facd6';
-
-      try {
-        const response = await axios.get(URL).then(res => res.data);
-        setData(response.data);
-      } catch (error) {}
-    };
-
     fetchData();
   }, []);
+
+  console.log(agentData);
 
   return (
     <div className="carousel">
       <div className="left">
         <div className="c-title">
           <h1>
-            {data.displayName}{' '}
-            <span className="c-title-class">{data.role.displayName}</span>{' '}
+            {agentData.displayName}
+            <span className="c-title-class">
+              {agentData.role.displayName}
+            </span>{' '}
           </h1>
         </div>
-        <div className="c-desc">{data.description}</div>
+        <div className="c-desc">{agentData.description}</div>
         <div className="abilities">
-          {data.abilities?.map(d => (
+          {agentData.abilities.map(d => (
             <div className="ability" key={d.slot}>
               <img src={d.displayIcon} alt="Ability Icon" className="a-icon" />
               <div className="a-name">{d.displayName}</div>
@@ -39,7 +50,10 @@ const Carousel = () => {
           ))}
         </div>
       </div>
-      <div className="right"></div>
+      <div className="right">
+        <div className="right-bg"></div>
+        <img src={agentData.fullPortraitV2} alt="" className="agent" />
+      </div>
     </div>
   );
 };
