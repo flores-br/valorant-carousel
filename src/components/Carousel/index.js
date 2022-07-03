@@ -9,9 +9,10 @@ const Carousel = () => {
     fullPortraitV2: '',
     role: {},
     abilities: [],
+    backgroundGradientColors: [],
   });
   const URL =
-    'https://valorant-api.com/v1/agents/8e253930-4c05-31dd-1b6c-968525494517';
+    'https://valorant-api.com/v1/agents/dade69b4-4f5a-8528-247b-219e5a1facd6';
 
   const fetchData = async () => {
     try {
@@ -31,6 +32,11 @@ const Carousel = () => {
   return (
     <div className="carousel">
       <div className="left">
+        <img
+          src={agentData.role.displayIcon}
+          alt="Role Icon"
+          className="c-icon"
+        />
         <div className="c-title">
           <h1>
             {agentData.displayName}
@@ -51,7 +57,14 @@ const Carousel = () => {
         </div>
       </div>
       <div className="right">
-        <div className="right-bg"></div>
+        <div
+          className="right-bg"
+          style={{ background: `#${agentData.backgroundGradientColors[1]}` }}
+        ></div>
+        <div
+          className="right-outline"
+          style={{ background: `#${agentData.backgroundGradientColors[2]}` }}
+        ></div>
         <img src={agentData.fullPortraitV2} alt="" className="agent" />
       </div>
     </div>
