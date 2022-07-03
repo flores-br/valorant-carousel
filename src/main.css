@@ -7,4 +7,7 @@
     rgba(255, 74, 81, 1) 0%,
     rgba(14, 25, 35, 1) 52%
   );
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
