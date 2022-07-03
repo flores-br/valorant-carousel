@@ -1,23 +1,16 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './style.css';
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 
 const Carousel = () => {
-  const [agentData, setAgentData] = useState({
-    displayName: '',
-    description: '',
-    fullPortraitV2: '',
-    role: {},
-    abilities: [],
-    backgroundGradientColors: [],
-  });
+  const [agentData, setAgentData] = useState(null);
   const URL =
-    'https://valorant-api.com/v1/agents/dade69b4-4f5a-8528-247b-219e5a1facd6';
+    'https://valorant-api.com/v1/agents/117ed9e3-49f3-6512-3ccf-0cada7e3823b';
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(URL).then(res => res.data.data);
-      setAgentData(response);
+      setAgentData(await axios.get(URL).then(res => res.data.data));
     } catch (err) {
       console.log(err);
     }
@@ -27,10 +20,10 @@ const Carousel = () => {
     fetchData();
   }, []);
 
-  console.log(agentData);
-
-  return (
+  return !agentData ? null : (
     <div className="carousel">
+      <AiOutlineArrowLeft className="left-arrow" />
+      <AiOutlineArrowRight className="right-arrow" />
       <div className="left">
         <img
           src={agentData.role.displayIcon}
@@ -59,11 +52,15 @@ const Carousel = () => {
       <div className="right">
         <div
           className="right-bg"
-          style={{ background: `#${agentData.backgroundGradientColors[1]}` }}
+          style={{
+            background: `#${agentData.backgroundGradientColors[1]}`,
+          }}
         ></div>
         <div
           className="right-outline"
-          style={{ background: `#${agentData.backgroundGradientColors[2]}` }}
+          style={{
+            background: `#${agentData.backgroundGradientColors[2]}`,
+          }}
         ></div>
         <img src={agentData.fullPortraitV2} alt="" className="agent" />
       </div>
