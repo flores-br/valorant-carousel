@@ -34,10 +34,22 @@
 .left {
   position: relative;
   flex: 3;
+  opacity: 0;
+  animation: fadeIn 500ms ease forwards;
+  animation-delay: 300ms;
 }
 
 .right {
   flex: 2;
+}
+
+.wrapper {
+  width: 80vw;
+  height: 70vh;
+  border: 1px solid #fff;
+  box-shadow: 0 0 0.1rem #fff;
+  padding: 2rem;
+  display: flex;
 }
 
 .c-title,
@@ -123,6 +135,9 @@
   top: 0;
   right: 0;
   z-index: 1;
+  opacity: 0;
+  transform: translateX(10%);
+  animation: bgIn 500ms ease forwards;
 }
 
 .right-outline {
@@ -133,29 +148,30 @@
   top: -1.5rem;
   right: -1.5rem;
   z-index: 2;
+  opacity: 0;
+  transform: translateX(-10%);
+  transition-delay: 1s;
+  animation: bgIn 500ms ease forwards;
 }
 
 .agent {
   max-width: 150%;
   position: relative;
   z-index: 10;
+  opacity: 0;
+  animation: fadeIn 500ms ease forwards;
+  animation-delay: 300ms;
 }
 
-/* .slide {
-  transform: scale(0.98);
-  transition-duration: 700ms ease;
+@keyframes bgIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-.slide.active {
-  transition-duration: 700ms;
-  transform: scale(1);
-} */
-
-.wrapper {
-  width: 80vw;
-  height: 70vh;
-  border: 1px solid #fff;
-  box-shadow: 0 0 0.1rem #fff;
-  padding: 2rem;
-  display: flex;
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }

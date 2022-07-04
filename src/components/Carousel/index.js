@@ -35,9 +35,9 @@ const Carousel = () => {
     <div className="carousel">
       <AiOutlineArrowLeft className="left-arrow" onClick={prevSlide} />
       <AiOutlineArrowRight className="right-arrow" onClick={nextSlide} />
-      {agentData.map((obj, index) => (
-        <div className={index === current ? 'slide active' : 'slide'}>
-          {index === current && (
+      {agentData.map(
+        (obj, index) =>
+          index === current && (
             <div className="wrapper">
               <div className="left">
                 <img
@@ -92,9 +92,8 @@ const Carousel = () => {
                 <img src={obj.fullPortraitV2} alt="" className="agent" />
               </div>
             </div>
-          )}
-        </div>
-      ))}
+          )
+      )}
     </div>
   );
 };
