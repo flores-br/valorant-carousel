@@ -57,6 +57,7 @@
 .a-name,
 .a-desc {
   color: #fff;
+  text-shadow: 2px 2px #0b0b0b;
 }
 
 .c-icon {
@@ -173,5 +174,31 @@
 @keyframes fadeIn {
   to {
     opacity: 1;
+  }
+}
+
+@media (max-width: 80em) {
+  .a-desc {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 65em) {
+  .wrapper {
+    position: relative;
+  }
+  .right {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 50%;
+    opacity: 0.15;
+  }
+}
+
+@media (max-width: 45em) {
+  .a-desc {
+    display: none;
   }
 }
