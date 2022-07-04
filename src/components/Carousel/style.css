@@ -177,13 +177,13 @@
   }
 }
 
-@media (max-width: 80em) {
+@media (max-width: 85em) {
   .a-desc {
     font-size: 0.7rem;
   }
 }
 
-@media (max-width: 65em) {
+@media (max-width: 72.5em) {
   .wrapper {
     position: relative;
   }
@@ -200,5 +200,27 @@
 @media (max-width: 45em) {
   .a-desc {
     display: none;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .c-icon {
+    left: 0;
+    top: -15%;
+    max-width: 4rem;
+  }
+  .c-desc {
+    font-size: 0.8rem;
+    margin-top: 2rem;
+  }
+  .a-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 28em) {
+  .c-title h1 {
+    font-size: 3rem;
   }
 }
