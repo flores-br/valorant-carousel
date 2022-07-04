@@ -2,21 +2,25 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './style.css';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
+import { Triangle } from 'react-loader-spinner';
 
 const Carousel = () => {
   const [agentData, setAgentData] = useState(null);
   const [current, setCurrent] = useState(0);
   const [length, setLength] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   const URL = 'https://valorant-api.com/v1/agents?isPlayableCharacter=true';
 
   const fetchData = async () => {
     try {
+      setIsLoading(true);
       const response = await axios.get(URL).then(res => res.data.data);
       setAgentData(await response);
       setLength(await response.length);
     } catch (err) {
       console.log(err);
     }
+    setIsLoading(false);
   };
 
   const nextSlide = () => {
@@ -31,7 +35,9 @@ const Carousel = () => {
     fetchData();
   }, []);
 
-  return !agentData ? null : (
+  return isLoading ? (
+    <Triangle ariaLabel="loading-indicator" color="grey" />
+  ) : (
     <div className="carousel">
       <AiOutlineArrowLeft className="left-arrow" onClick={prevSlide} />
       <AiOutlineArrowRight className="right-arrow" onClick={nextSlide} />
