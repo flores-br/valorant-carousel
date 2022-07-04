@@ -1,11 +1,10 @@
 .carousel {
   position: relative;
-  width: 80vw;
-  height: 70vh;
-  border: 1px solid #fff;
-  box-shadow: 0 0 0.1rem #fff;
-  padding: 2rem;
+  width: 100vw;
+  height: 100vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .left-arrow,
@@ -19,11 +18,11 @@
 }
 
 .left-arrow {
-  left: -8rem;
+  left: 2%;
 }
 
 .right-arrow {
-  right: -8rem;
+  right: 2%;
 }
 
 .left-arrow:hover,
@@ -140,4 +139,23 @@
   max-width: 150%;
   position: relative;
   z-index: 10;
+}
+
+/* .slide {
+  transform: scale(0.98);
+  transition-duration: 700ms ease;
+}
+
+.slide.active {
+  transition-duration: 700ms;
+  transform: scale(1);
+} */
+
+.wrapper {
+  width: 80vw;
+  height: 70vh;
+  border: 1px solid #fff;
+  box-shadow: 0 0 0.1rem #fff;
+  padding: 2rem;
+  display: flex;
 }
