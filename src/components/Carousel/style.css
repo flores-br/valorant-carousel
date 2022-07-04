@@ -46,8 +46,8 @@
 .wrapper {
   width: 80vw;
   height: 70vh;
-  border: 1px solid #fff;
-  box-shadow: 0 0 0.1rem #fff;
+  /* border: 1px solid #fff; */
+  /* box-shadow: 0 0 0.1rem #fff; */
   padding: 2rem;
   display: flex;
 }
@@ -79,7 +79,7 @@
   text-transform: uppercase;
   font-weight: normal;
   letter-spacing: 0.15em;
-  left: 1%;
+  left: 0.15em;
   bottom: -1.3rem;
 }
 

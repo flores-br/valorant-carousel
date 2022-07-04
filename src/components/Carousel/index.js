@@ -38,7 +38,7 @@ const Carousel = () => {
       {agentData.map(
         (obj, index) =>
           index === current && (
-            <div className="wrapper">
+            <div className="wrapper" key={index}>
               <div className="left">
                 <img
                   src={obj.role.displayIcon}
