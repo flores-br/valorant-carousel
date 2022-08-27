@@ -95,7 +95,7 @@ const Carousel = () => {
                     }`,
                   }}
                 ></div>
-                <img src={obj.fullPortraitV2} alt="" className="agent" />
+                <img src={obj.fullPortrait} alt="" className="agent" />
               </div>
             </div>
           )
